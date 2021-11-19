@@ -1,0 +1,42 @@
+body {
+  padding: 0px;
+  margin: 0px;
+}
+
+.logo {
+  color: #e60023;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.text {
+  font-weight: 700;
+  color: #e60023;
+  font-size: 20px;
+}
+
+.pages {
+  flex: 0.4;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  height: 56px;
+  padding: 12px 4px 4px 16px;
+  background-color: white;
+  color: black;
+  justify-content: space-between;
+}
+
+.txtlogo {
+  display: flex;
+  align-items: center;
+  height: 56px;
+  padding: 12px 4px 4px 16px;
+  background-color: white;
+  color: black;
+  justify-content: space-evenly;
+}

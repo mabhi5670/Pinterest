@@ -1,0 +1,10 @@
+.logintxt {
+  color: #fff;
+  background-color: #e60023;
+  padding: 8px 12px 8px 12px;
+  border-radius: 30px;
+  font-weight: 700;
+}
+.logintxt:hover {
+  background-color: rgb(206, 46, 46);
+}

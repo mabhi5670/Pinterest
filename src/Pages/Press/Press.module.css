@@ -1,0 +1,11 @@
+.press {
+  color: black;
+  font-weight: 700;
+  color: inherit;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.press:hover {
+  text-decoration: underline;
+}

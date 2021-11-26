@@ -5,7 +5,7 @@ import About from '../../Pages/About/About';
 import Business from '../../Pages/Bussiness/Bussiness';
 import Press from '../../Pages/Press/Press';
 import Login from '../Login/Login';
-import SignUp from '../SignUp/SignUp';
+// import SignUp from '../SignUp/SignUp';
 const Navbar = () => {
   return (
     <navbar>
@@ -22,7 +22,7 @@ const Navbar = () => {
           <Business />
           <Press />
           <Login />
-          <SignUp />
+          {/* <SignUp /> */}
         </section>
       </div>
     </navbar>

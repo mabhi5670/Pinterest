@@ -1,0 +1,305 @@
+.slideshow {
+  margin: 0 auto;
+  overflow: hidden;
+  max-width: 500px;
+}
+
+.slideshowSlider {
+  white-space: nowrap;
+  transition: ease 1000ms;
+}
+
+.slide {
+  display: inline-block;
+
+  height: 400px;
+  width: 100%;
+  border-radius: 40px;
+}
+
+/* Buttons */
+
+.slideshowDots {
+  text-align: center;
+}
+
+.slideshowDot {
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+
+  cursor: pointer;
+  margin: 15px 7px 0px;
+
+  background-color: #c4c4c4;
+}
+
+.slideshowDot.active {
+  background-color: #6a0dad;
+}
+
+/* 
+
+
+import React from 'react';
+import styles from './Login.module.css';
+import styles1 from '../Navbar/Navbar.module.css';
+import Box from '@mui/material/Box';
+import CloseIcon from '@mui/icons-material/Close';
+import Typography from '@mui/material/Typography';
+import Modal from '@mui/material/Modal';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
+import PinterestIcon from '@mui/icons-material/Pinterest';
+import FacebookRoundedIcon from '@mui/icons-material/FacebookRounded';
+import GoogleIcon from '@mui/icons-material/Google';
+
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 400,
+  bgcolor: 'background.paper',
+  border: '2px solid #fff',
+  boxShadow: 24,
+  p: 2,
+  minHeight: '600px',
+  minWidth: '430px',
+  borderRadius: '30px',
+};
+
+const schema = yup.object().shape({
+  email: yup.string().email().required(),
+  password: yup.string().min(8).max(32).required(),
+});
+
+const Login = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm({
+    resolver: yupResolver(schema),
+  });
+  const onSubmitHandler = (data) => {
+    console.log({ data });
+    reset();
+  };
+
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
+  return (
+    <div>
+      <span className={styles.logintxt} onClick={handleOpen}>
+        Login
+      </span>
+      <Modal
+        open={open}
+        aria-labelledby='modal-modal-title'
+        aria-describedby='modal-modal-description'
+      >
+        <Box sx={style}>
+          <Typography
+            id='modal-modal-title'
+            variant='h6'
+            component='h2'
+            onClick={handleClose}
+            display='flex'
+            justifyContent='flex-end'
+          >
+            <CloseIcon />
+          </Typography>
+          <Typography id='modal-modal-description' sx={{ mt: 2 }}>
+            <form
+              onSubmit={handleSubmit(onSubmitHandler)}
+              className={styles.form}
+            >
+              <div>
+                <PinterestIcon
+                  className={styles1.logo}
+                  sx={{ width: 40, height: 40, marginTop: '-30px' }}
+                />
+              </div>
+              <h2 className={styles.headertxt}>Welcome to Pinterest</h2>
+              <br />
+
+              <input
+                {...register('email')}
+                placeholder='email'
+                type='Email'
+                required
+                className={styles.input}
+              />
+
+              <p>{errors.email?.message}</p>
+              <br />
+
+              <input
+                {...register('password')}
+                placeholder='password'
+                type='password'
+                required
+                className={styles.inputPass}
+              />
+              <a href='/' className={styles.forgetxt}>
+                Forgotten your password?
+              </a>
+              <p>{errors.password?.message}</p>
+              <br />
+
+              <div className={styles.logintxt}>Log In</div>
+            </form>
+            <div className={styles.orTxt}>
+              <span className={styles.Txt}>Or</span>
+
+              <span className={styles.facebook}>
+                <FacebookRoundedIcon
+                  sx={{
+                    color: '#fff',
+                    marginRight: '8px',
+                  }}
+                />
+                Connect With Facebook
+              </span>
+
+              <GoogleIcon color='conic-gradient(from -45deg, #ea4335 110deg, #4285f4 90deg 180deg, #34a853 180deg 270deg, #fbbc05 270deg) 73% 55%/150% 150% no-repeat' />
+            </div>
+          </Typography>
+        </Box>
+      </Modal>
+    </div>
+  );
+};
+
+export default Login;
+
+
+
+
+.logintxt {
+  color: #fff;
+  background-color: #e60023;
+  padding: 8px 12px 8px 12px;
+  border-radius: 30px;
+  font-weight: 700;
+}
+.logintxt:hover {
+  background-color: rgb(206, 46, 46);
+}
+
+.cancel {
+  font-weight: 1000;
+  font-size: 1000px;
+}
+
+.input {
+  margin-top: -40px;
+  outline: none;
+  width: 52%;
+  padding: 17px;
+  border-radius: 15px;
+  border: 2px solid rgb(212, 208, 203);
+}
+
+.input:hover {
+  border: 2px solid #e60023;
+}
+.input:focus {
+  border: 2px solid rgb(212, 208, 203);
+  outline-color: #039be5;
+  outline-style: solid;
+  outline-width: 4px;
+}
+
+.inputPass {
+  margin-top: -50px;
+  outline: none;
+  width: 52%;
+  padding: 17px;
+  border-radius: 15px;
+  border: 2px solid rgb(212, 208, 203);
+}
+
+.inputPass:hover {
+  border: 2px solid #e60023;
+}
+.inputPass:focus {
+  border: 2px solid rgb(212, 208, 203);
+  outline-color: #68b9e7;
+  outline-style: solid;
+  outline-width: 4px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.forgetxt {
+  margin: 10px;
+  margin-right: 80px;
+  font-weight: 900;
+  font-size: 13px;
+  text-decoration: none;
+  color: black;
+}
+
+.forgetxt:hover {
+  border-bottom: 1.7px solid black;
+}
+
+.logintxt {
+  margin-top: -50px;
+  box-sizing: border-box;
+  padding: 8px;
+  padding-left: 24%;
+  padding-right: 24%;
+  background-color: #e60023;
+}
+
+.orTxt {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.facebook {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  box-sizing: border-box;
+  padding: 8px;
+  padding-left: 6%;
+  padding-right: 6%;
+  background-color: #4285f4;
+  border-radius: 30px;
+  font-size: 90%;
+  font-weight: 700;
+  color: #fff;
+}
+
+.Txt {
+  font-weight: 700;
+}
+
+.headertxt {
+  font-size: 200%;
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+
+
+ */

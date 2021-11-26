@@ -1,0 +1,11 @@
+.business {
+  color: black;
+  font-weight: 700;
+  color: inherit;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.business:hover {
+  border-bottom: 1.8px solid black;
+}
